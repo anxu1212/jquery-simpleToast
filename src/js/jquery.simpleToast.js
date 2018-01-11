@@ -1,3 +1,8 @@
+/*!
+ * simpleToast -- jquery
+ * version - v0.0.1
+ * https://github.com/anxu1212/jquery.simpleToast
+ */
 (function ($, window) {
     'use strict';
     // Plugin definition.
