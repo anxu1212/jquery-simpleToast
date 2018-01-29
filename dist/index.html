@@ -14,29 +14,38 @@
     <!-- 网站开启对 web app 程序的支持 -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href="https://cdn.bootcss.com/normalize/7.0.0/normalize.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/jquery.simpleToast.min.css" rel="stylesheet">
+    <link href="css/jquery.simpleToast.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
     <a href="#" id="t1">test</a>
-    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support. If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making your icons more awesome for all users</div>
-    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support. If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making your icons more awesome for all users</div>
-    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support. If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making your icons more awesome for all users</div>
-    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support. If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making your icons more awesome for all users</div>
-    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support. If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making your icons more awesome for all users</div>
-<!-- <div class="toast">
+    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support.
+        If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making
+        your icons more awesome for all users</div>
+    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support.
+        If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making
+        your icons more awesome for all users</div>
+    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support.
+        If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making
+        your icons more awesome for all users</div>
+    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support.
+        If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making
+        your icons more awesome for all users</div>
+    <div>The following examples are kept simple and assume use of Font Awesome CDN, which provides auto-accessibility support.
+        If you are not using the Font Awesome CDN, please see the manual accessibility examples and read more about making
+        your icons more awesome for all users</div>
+    <!-- <div class="toast">
     <div>
         <i class="fa fa-spinner fa-pulse"></i>
         <span>授权失败!败!败!!</span>
     </div>
 </div> -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
-    <script src="./js/jquery.simpleToast.min.js"></script>
+    <script src="./js/jquery.simpleToast.js"></script>
     <script>
-        $('#t1').on('click',function(){
+        $('#t1').on('click', function () {
             $('body').simpleToast({
                 maxWidth: "200px",
                 padding: "10px 20px",
@@ -44,13 +53,14 @@
                 opacity: 0.9,
                 zIndex: 9999, //层级
                 borderRadius: "6px", //圆角
-                duration: 2000, //toast 显示时间
-                animateIn: "bounceIn", //进入的动画
+                duration: 1000, //toast 显示时间
+                animateIn: "boxBounceIn", //进入的动画
                 animateDuration: 500, //执行动画时间
-        
                 color: "#ffffff",
-                fontSize: "14px", //字体大小
-                icon:"fa fa-spinner fa-pulse",
+                fontSize: "16px", //字体大小
+                // icon:"fa fa-spinner fa-pulse",
+                icon:"icon-success",
+                // icon: "icon-loading",
                 content: "这是提示信息", //提示内容
             });
         });
@@ -58,5 +68,3 @@
 </body>
 
 </html>
-
-

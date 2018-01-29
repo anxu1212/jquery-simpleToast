@@ -26,7 +26,7 @@
         zIndex: 9999, //层级
         borderRadius: "6px", //圆角
         duration: 2000, //toast 显示时间
-        animateIn: "bounceIn", //进入的动画
+        animateIn: "boxBounceIn", //进入的动画
         animateDuration: 500, //执行动画时间
 
         color: "#ffffff",
@@ -39,7 +39,6 @@
     function createBox(opts) {
         var $icon = $("<i></i>").addClass(opts.icon);
         var $content = $("<span></span>").css({
-            'font-size':opts.fontSize,
             'color':opts.color
         }).html(opts.content);
 
@@ -48,6 +47,7 @@
             'background':opts.background,
             'opacity':opts.opacity,
             'max-width':opts.maxWidth,
+            'font-size':opts.fontSize,
             'padding':opts.padding,
             'border-radius':opts.borderRadius
         }).addClass(opts.animateIn).append($icon).append($content);

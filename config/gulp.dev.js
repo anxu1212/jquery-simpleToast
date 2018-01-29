@@ -21,6 +21,16 @@ module.exports = function () {
                 stream: true
             }));
     });
+        /** 
+     * font 
+     */
+    gulp.task('dev:font', function () {
+        return gulp.src(Config.font.src)
+            .pipe(gulp.dest(Config.font.tmp))
+            .pipe(browserSync.reload({
+                stream: true
+            }));
+    });
     /** 
      * CSS样式处理 
      */
@@ -59,7 +69,7 @@ module.exports = function () {
     });
 
 
-    gulp.task('dev', ['dev:html','dev:sass', 'dev:js'], function () {
+    gulp.task('dev', ['dev:html','dev:sass', 'dev:js','dev:font'], function () {
         browserSync.init({
             server: {
                 baseDir: Config.tmp

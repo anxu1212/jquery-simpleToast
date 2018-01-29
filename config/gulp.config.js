@@ -12,6 +12,11 @@ module.exports = {
         tmp: TMP_DIR +'css',
 		dist: DIST_DIR + 'css' // SASS文件生成CSS后存放的目录：./dist/css  
     },
+    font:{
+        src:SRC_DIR+'fonts/*',
+        tmp:TMP_DIR+'fonts',
+        dist:DIST_DIR+'fonts'
+    },
 	html: {
         src: SRC_DIR + '*.html',
         tmp: TMP_DIR,

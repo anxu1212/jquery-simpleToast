@@ -19,6 +19,11 @@ module.exports =function(){
         .pipe(gulp.dest(Config.html.dist));
     });
 
+
+    gulp.task('font', function () {
+        return gulp.src(Config.font.src)
+            .pipe(gulp.dest(Config.font.dist));
+    });
     /** 
      * sass样式处理 
      */
@@ -30,10 +35,11 @@ module.exports =function(){
         .pipe(autoprefixer({
             browsers:['last 2 version'],//浏览器版本 
          }))
+        .pipe(cssnano())
+        .pipe(gulp.dest(Config.sass.dist))
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(cssnano())
         .pipe(gulp.dest(Config.sass.dist));
     });
     /** 
@@ -41,11 +47,12 @@ module.exports =function(){
      */
     gulp.task('js', function () {
         return gulp.src(Config.js.src)
+        .pipe(uglify())
+        .pipe(gulp.dest(Config.js.dist))
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(uglify())
-        .pipe(gulp.dest(Config.js.dist))
+        .pipe(gulp.dest(Config.js.dist));
     });
-    gulp.task('prod', ['html', 'js','sass']);
+    gulp.task('prod', ['html', 'js','sass','font']);
 }
