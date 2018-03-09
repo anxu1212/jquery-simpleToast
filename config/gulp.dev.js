@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
+var pump = require('pump');
 var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 
@@ -14,58 +15,68 @@ module.exports = function () {
     /** 
      * HTML处理 
      */
-    gulp.task('dev:html', function () {
-        return gulp.src(Config.html.src)
-            .pipe(gulp.dest(Config.html.tmp))
-            .pipe(browserSync.reload({
+    gulp.task('dev:html', function (cb) {
+        pump([
+            gulp.src(Config.html.src),
+            gulp.dest(Config.html.tmp),
+            browserSync.reload({
                 stream: true
-            }));
+            })
+        ],cb);
     });
         /** 
      * font 
      */
-    gulp.task('dev:font', function () {
-        return gulp.src(Config.font.src)
-            .pipe(gulp.dest(Config.font.tmp))
-            .pipe(browserSync.reload({
+    gulp.task('dev:font', function (cb) {
+        pump([
+            gulp.src(Config.font.src),
+            gulp.dest(Config.font.tmp),
+            browserSync.reload({
                 stream: true
-            }));
+            })
+        ], cb);
     });
     /** 
      * CSS样式处理 
      */
-    gulp.task('dev:css', function () {
-        return gulp.src(Config.css.src)
-            .pipe(gulp.dest(Config.css.tmp))
-            .pipe(browserSync.reload({
+    gulp.task('dev:css', function (cb) {
+        pump([
+            gulp.src(Config.css.src),
+            gulp.dest(Config.css.tmp),
+            browserSync.reload({
                 stream: true
-            }));
+            })
+        ], cb);
     });
 
     /** 
      * sass样式处理 
      */
-    gulp.task('dev:sass', function () {
-        return gulp.src(Config.sass.src)
-            .pipe(plumber())
-            .pipe(sass({
+    gulp.task('dev:sass', function (cb) {
+        pump([
+            gulp.src(Config.sass.src),
+            plumber(),
+            sass({
                 outputStyle: 'expanded'
-            }))
-            .pipe(autoprefixer('last 2 version'))
-            .pipe(gulp.dest(Config.sass.tmp))
-            .pipe(browserSync.reload({
+            }),
+            autoprefixer('last 2 version'),
+            gulp.dest(Config.sass.tmp),
+            browserSync.reload({
                 stream: true
-            }));
+            })
+        ], cb);
     });
     /** 
      * js处理 
      */
-    gulp.task('dev:js', function () {
-        return gulp.src(Config.js.src)
-            .pipe(gulp.dest(Config.js.tmp))
-            .pipe(browserSync.reload({
+    gulp.task('dev:js', function (cb) {
+        pump([
+            gulp.src(Config.js.src),
+            gulp.dest(Config.js.tmp),
+            browserSync.reload({
                 stream: true
-            }));
+            })
+        ], cb);
     });
 
 

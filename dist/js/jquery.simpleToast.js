@@ -1,1 +1,71 @@
-!function(a,n){"use strict";a.fn.simpleToast=function(n){var i,d,t,o,e=a.extend({},a.fn.simpleToast.defaults,n),s=a("<div></div>").addClass("toast").css({"z-index":e.zIndex});return(i=e,d=a("<i></i>").addClass(i.icon),t=a("<span></span>").css({color:i.color}).html(i.content),a("<div class='animated'></div>").css({"animation-duration":i.animateDuration/1e3+"s",background:i.background,opacity:i.opacity,"max-width":i.maxWidth,"font-size":i.fontSize,padding:i.padding,"border-radius":i.borderRadius}).addClass(i.animateIn).append(d).append(t)).appendTo(s),this.append(s),o=s,setTimeout(function(){o.remove()},e.duration),this},a.fn.simpleToast.defaults={maxWidth:"200px",padding:"10px 20px",background:"#2b2a2a",opacity:.9,zIndex:9999,borderRadius:"6px",duration:2e3,animateIn:"boxBounceIn",animateDuration:500,color:"#ffffff",fontSize:"14px",icon:"fa fa-spinner fa-pulse",content:"这是一个提示信息"}}(jQuery,window);
+"use strict";
+
+/*!
+ * simpleToast -- jquery
+ * version - v0.0.2
+ * https://github.com/anxu1212/jquery.simpleToast
+ */
+(function ($, window) {
+    'use strict';
+
+    var simpleToast = function simpleToast(ele, opt) {
+        this.$element = ele;
+        this.defaults = {
+            maxWidth: "200px",
+            padding: "10px 20px",
+            background: "#2b2a2a",
+            opacity: 0.9,
+            zIndex: 9999, //层级
+            borderRadius: "6px", //圆角
+            duration: 1000, //toast 显示时间
+            animateIn: "boxBounceIn", //进入的动画
+            animateDuration: 500, //执行动画时间
+            color: "#ffffff",
+            fontSize: "16px", //字体大小
+            icon: "icon-success",
+            content: "这是一个提示信息" //提示内容
+
+        };
+        this.options = $.extend({}, this.defaults, opt);
+    };
+
+    /**/
+    simpleToast.prototype.showBox = function () {
+
+        var container = this.createBox();
+
+        setTimeout(function () {
+            container.remove();
+        }, this.options.duration);
+
+        return this.$element.append(container);
+    };
+
+    simpleToast.prototype.createBox = function () {
+        var container = $("<div></div>").addClass('toast').css({
+            "z-index": this.options.zIndex
+        });
+        var box = $("<div class='animated'></div>").css({
+            'animation-duration': this.options.animateDuration / 1000 + 's',
+            'background': this.options.background,
+            'opacity': this.options.opacity,
+            'max-width': this.options.maxWidth,
+            'font-size': this.options.fontSize,
+            'padding': this.options.padding,
+            'border-radius': this.options.borderRadius
+        }).addClass(this.options.animateIn).appendTo(container);
+
+        $("<i></i>").addClass(this.options.icon).appendTo(box);
+        $("<span></span>").css({
+            'color': this.options.color
+        }).html(this.options.content).appendTo(box);
+
+        return container;
+    };
+
+    // Plugin definition.
+    $.fn.simpleToast = function (options) {
+        var toast = new simpleToast(this, options);
+        return toast.showBox();
+    };
+})(jQuery, window);

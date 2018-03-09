@@ -1,6 +1,6 @@
 /*!
  * simpleToast -- jquery
- * version - v0.0.1
+ * version - v0.0.2
  * https://github.com/anxu1212/jquery.simpleToast
  */
 (function ($, window) {

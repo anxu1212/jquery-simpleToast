@@ -46,21 +46,7 @@
     <script src="./js/jquery.simpleToast.js"></script>
     <script>
         $('#t1').on('click', function () {
-            $('body').simpleToast({
-                maxWidth: "200px",
-                padding: "10px 20px",
-                background: "#2b2a2a",
-                opacity: 0.9,
-                zIndex: 9999, //层级
-                borderRadius: "6px", //圆角
-                duration: 1000, //toast 显示时间
-                animateIn: "boxBounceIn", //进入的动画
-                animateDuration: 500, //执行动画时间
-                color: "#ffffff",
-                fontSize: "16px", //字体大小
-                // icon:"fa fa-spinner fa-pulse",
-                icon:"icon-success",
-                // icon: "icon-loading",
+            var aa = $('body').simpleToast({
                 content: "这是提示信息", //提示内容
             });
         });
