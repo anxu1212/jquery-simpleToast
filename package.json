@@ -1,14 +1,14 @@
 {
     "name": "jquery.simpletoast",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
     "main": "n",
     "scripts": {
         "build": "gulp prod",
         "dev": "gulp dev"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "anxu",
+    "license": "MIT",
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
