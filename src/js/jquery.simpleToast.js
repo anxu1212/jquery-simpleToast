@@ -12,7 +12,7 @@
         this.defaults = {
             minWidth: "100px",
             maxWidth: "200px",
-            padding: "10px 20px",
+            padding: "10px",
             background: "#2b2a2a",
             opacity: 0.9,
             zIndex: 9999, //层级

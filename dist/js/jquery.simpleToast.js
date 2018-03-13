@@ -11,8 +11,9 @@
     var simpleToast = function simpleToast(ele, opt) {
         this.$element = ele;
         this.defaults = {
+            minWidth: "100px",
             maxWidth: "200px",
-            padding: "10px 20px",
+            padding: "10px",
             background: "#2b2a2a",
             opacity: 0.9,
             zIndex: 9999, //层级
@@ -23,7 +24,7 @@
             color: "#ffffff",
             fontSize: "16px", //字体大小
             icon: "icon-success",
-            content: "这是一个提示信息" //提示内容
+            content: "this is a message!" //提示内容
 
         };
         this.options = $.extend({}, this.defaults, opt);
@@ -49,6 +50,7 @@
             'animation-duration': this.options.animateDuration / 1000 + 's',
             'background': this.options.background,
             'opacity': this.options.opacity,
+            'min-width': this.options.minWidth,
             'max-width': this.options.maxWidth,
             'font-size': this.options.fontSize,
             'padding': this.options.padding,
